@@ -88,6 +88,8 @@ public class AlertSwipeActivity extends FragmentActivity {
                 Type alertListType = new TypeToken<ArrayList<Alert>>(){}.getType();
                 List<Alert> newAlertList = parser.fromJson(response.toString(), alertListType);
                 alertList.addAll(newAlertList);
+                pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), alertList);
+                mPager.setAdapter(pagerAdapter);
             }
         }, new Response.ErrorListener() {
             @Override
