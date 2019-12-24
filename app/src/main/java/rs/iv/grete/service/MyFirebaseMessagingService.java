@@ -70,7 +70,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
             Intent intent = new Intent("MyData");
-            intent.putExtra("message", remoteMessage.getData().get("id"));
+            intent.putExtra("message", remoteMessage.getData().get("alert_id"));
             broadcaster.sendBroadcast(intent);
         }
 

@@ -2,7 +2,7 @@ package rs.iv.grete.model;
 
 public class Alert {
     private String id;
-    private String userId;
+    private String creatorId;
     private String title;
     private String description;
     private String tag;
@@ -11,9 +11,9 @@ public class Alert {
     public Alert() {
     }
 
-    public Alert(String id, String userId, String title, String description, String tag, Integer priority) {
+    public Alert(String id, String creatorId, String title, String description, String tag, Integer priority) {
         this.id = id;
-        this.userId = userId;
+        this.creatorId = creatorId;
         this.title = title;
         this.description = description;
         this.tag = tag;
@@ -28,12 +28,12 @@ public class Alert {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getCreatorId() {
+        return creatorId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
     }
 
     public String getTitle() {
