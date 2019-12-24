@@ -61,7 +61,7 @@ public class ScreenSlidePageFragment extends Fragment {
             public void onClick(View view) {
                 Map<String, Object> patch = new HashMap<>();
                 patch.put("id", alert.getId());
-                patch.put("assignee_id", 2);
+                patch.put("assignee_id", 1);
                 Client.getInstance(getContext()).addToRequestQueue(
                         new JsonObjectRequest(Request.Method.PATCH, "http://192.168.22.112:8765/alerts/" + alert.getId(), new JSONObject(patch), new Response.Listener<JSONObject>() {
                             @Override

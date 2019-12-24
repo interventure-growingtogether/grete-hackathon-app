@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainActivity.this, "successfully subscribed", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "successfully subscribed", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainActivity.this, "successfully subscribed", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, "successfully subscribed", Toast.LENGTH_SHORT).show();
                     }
                 });
 

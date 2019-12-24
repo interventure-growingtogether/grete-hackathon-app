@@ -53,7 +53,7 @@ public class CreateAlertActivity extends AppCompatActivity {
                 Alert a = new Alert();
                 a.setDescription(descriptionText.getText().toString());
                 a.setTitle(titleText.getText().toString());
-                a.setCreatorId("1234");
+                a.setCreatorId("3");
                 a.setTag("java");
                 a.setPriority(0);
 
