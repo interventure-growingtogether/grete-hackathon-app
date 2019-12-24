@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "577252871636",
+    "firebase_url": "https://aleksjova013.firebaseio.com",
+    "project_id": "aleksjova013",
+    "storage_bucket": "aleksjova013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577252871636:android:625e2c881b307d6b4f5a41",
+        "android_client_info": {
+          "package_name": "rs.iv.grete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577252871636-jd8las54slidimfgkp39krhahmaosdu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtzMqUXw3LWOT4X89f1cVD216OwHjLroY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577252871636-jd8las54slidimfgkp39krhahmaosdu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
