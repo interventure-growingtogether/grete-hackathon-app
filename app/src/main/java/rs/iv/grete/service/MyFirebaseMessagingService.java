@@ -1,4 +1,4 @@
-package rs.iv.grete.java;
+package rs.iv.grete.service;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -11,14 +11,14 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import rs.iv.grete.activity.MainActivity;
-import rs.iv.grete.R;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -63,7 +63,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 // Handle message within 10 seconds
                 handleNow();
             }
-
         }
 
         // Check if message contains a notification payload.

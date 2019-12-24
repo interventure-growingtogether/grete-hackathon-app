@@ -26,7 +26,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <service
-            android:name=".java.MyFirebaseMessagingService"
+            android:name=".service.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
