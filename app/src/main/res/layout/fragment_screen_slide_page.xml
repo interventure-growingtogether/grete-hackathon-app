@@ -40,7 +40,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="222dp"
+        android:layout_height="400dp"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 </LinearLayout>
 </ScrollView>

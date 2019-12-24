@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, AlertSwipeActivity.class);
+                startActivity(i);
+            }
+        });
+
         FirebaseMessaging.getInstance().subscribeToTopic("java")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
