@@ -1,5 +1,6 @@
-package rs.iv.grete;
+package rs.iv.grete.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import rs.iv.grete.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i = new Intent(MainActivity.this, AlertSwipeActivity.class);
+                startActivity(i);
             }
         });
 
@@ -52,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
                 });
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

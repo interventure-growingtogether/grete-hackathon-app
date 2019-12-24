@@ -17,7 +17,7 @@ import androidx.work.WorkManager;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import rs.iv.grete.MainActivity;
+import rs.iv.grete.activity.MainActivity;
 import rs.iv.grete.R;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
