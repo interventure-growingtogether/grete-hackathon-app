@@ -13,12 +13,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONObject;
@@ -52,6 +50,8 @@ public class ScreenSlidePageFragment extends Fragment {
         alertPriority.setText(getPriority(alert.getPriority()));
         TextView alertTag = rootView.findViewById(R.id.alertTag);
         alertTag.setText(alert.getTag());
+        TextView alertuser = rootView.findViewById(R.id.alertUser);
+        alertuser.setText(alert.getCreator_name());
         ImageView iv = rootView.findViewById(R.id.imageView);
         Glide.with(rootView).load(getPriorityImage(alert.getPriority())).into(iv);
         accept = rootView.findViewById(R.id.accept);

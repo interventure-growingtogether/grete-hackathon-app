@@ -105,16 +105,6 @@ public class AlertSwipeActivity extends FragmentActivity {
 
     }
 
-    private Alert createMockAlert(Integer prio) {
-        Alert alert =  new Alert();
-        alert.setId(UUID.randomUUID().toString());
-        alert.setTitle("Alert! ID: " + alert.getId());
-        alert.setDescription("some random stuff");
-        alert.setPriority(prio);
-        alert.setTag("Java");
-        return alert;
-    }
-
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
         List<Alert> alerts;

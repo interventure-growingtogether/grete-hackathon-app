@@ -36,7 +36,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HIGH" />
-
+    <TextView style="?android:textAppearanceMedium"
+        android:id="@+id/alertUser"
+        android:padding="16dp"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HIGH" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"

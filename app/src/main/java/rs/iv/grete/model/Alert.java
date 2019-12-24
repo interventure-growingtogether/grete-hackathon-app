@@ -3,6 +3,7 @@ package rs.iv.grete.model;
 public class Alert {
     private String id;
     private String creatorId;
+    private String creator_name;
     private String title;
     private String description;
     private String tag;
@@ -66,5 +67,13 @@ public class Alert {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public String getCreator_name() {
+        return creator_name;
+    }
+
+    public void setCreator_name(String creator_name) {
+        this.creator_name = creator_name;
     }
 }
