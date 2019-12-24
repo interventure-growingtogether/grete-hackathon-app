@@ -12,6 +12,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -30,6 +31,11 @@ import rs.iv.grete.activity.MainActivity;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
+    private LocalBroadcastManager broadcaster;
+
+    public void onCreate() {
+        broadcaster = LocalBroadcastManager.getInstance(this);
+    }
 
     /**
      * Called when message is received.
@@ -63,13 +69,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use WorkManager.
-                scheduleJob();
-            } else {
-                // Handle message within 10 seconds
-                handleNow();
-            }
+            Intent intent = new Intent("MyData");
+            intent.putExtra("message", remoteMessage.getData().get("id"));
+            broadcaster.sendBroadcast(intent);
         }
 
         // Check if message contains a notification payload.
