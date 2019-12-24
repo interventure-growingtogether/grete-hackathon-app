@@ -1,5 +1,6 @@
 package rs.iv.grete.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,9 @@ public class CreateAlertActivity extends AppCompatActivity {
         final EditText descriptionText = findViewById(R.id.description);
         final Button sendButton = findViewById(R.id.send);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        sendButton.setAlpha(0.6f);
+        sendButton.setBackgroundColor(Color.RED);
+        sendButton.setTextSize(23f);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
