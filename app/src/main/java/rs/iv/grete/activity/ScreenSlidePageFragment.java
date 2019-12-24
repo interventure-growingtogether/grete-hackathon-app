@@ -43,6 +43,8 @@ public class ScreenSlidePageFragment extends Fragment {
         Glide.with(rootView).load(getPriorityImage(alert.getPriority())).into(iv);
         accept = rootView.findViewById(R.id.accept);
         accept.setBackgroundColor(Color.RED);
+        accept.setAlpha(0.6f);
+        accept.setTextSize(23f);
         return rootView;
     }
 
