@@ -1,10 +1,12 @@
 package rs.iv.grete.activity;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import rs.iv.grete.model.Alert;
 
 public class ScreenSlidePageFragment extends Fragment {
     private Alert alert;
+    private Button accept;
 
     public ScreenSlidePageFragment(Alert alert){
         super();
@@ -38,6 +41,8 @@ public class ScreenSlidePageFragment extends Fragment {
         alertTag.setText(alert.getTag());
         ImageView iv = rootView.findViewById(R.id.imageView);
         Glide.with(rootView).load(getPriorityImage(alert.getPriority())).into(iv);
+        accept = rootView.findViewById(R.id.accept);
+        accept.setBackgroundColor(Color.RED);
         return rootView;
     }
 
