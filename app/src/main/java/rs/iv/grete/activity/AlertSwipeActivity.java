@@ -38,14 +38,14 @@ public class AlertSwipeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
         alertList = new ArrayList<>();
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
-        alertList.add(createMockAlert());
+        alertList.add(createMockAlert(1));
+        alertList.add(createMockAlert(2));
+        alertList.add(createMockAlert(3));
+        alertList.add(createMockAlert(3));
+        alertList.add(createMockAlert(4));
+        alertList.add(createMockAlert(5));
+        alertList.add(createMockAlert(1));
+        alertList.add(createMockAlert(2));
 
         mPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), alertList);
@@ -53,12 +53,12 @@ public class AlertSwipeActivity extends FragmentActivity {
 
     }
 
-    private Alert createMockAlert() {
+    private Alert createMockAlert(Integer prio) {
         Alert alert =  new Alert();
         alert.setId(UUID.randomUUID().toString());
         alert.setTitle("Alert! ID: " + alert.getId());
         alert.setDescription("some random stuff");
-        alert.setPriority(1);
+        alert.setPriority(prio);
         alert.setTag("Java");
         return alert;
     }

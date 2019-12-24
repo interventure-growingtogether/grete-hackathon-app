@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
 
 import rs.iv.grete.R;
 import rs.iv.grete.model.Alert;
@@ -30,9 +33,33 @@ public class ScreenSlidePageFragment extends Fragment {
         TextView alertTitle = rootView.findViewById(R.id.alertTitle);
         alertTitle.setText(alert.getTitle());
         TextView alertPriority = rootView.findViewById(R.id.alertPriority);
-        alertPriority.setText(alert.getPriority().toString());
+        alertPriority.setText(getPriority(alert.getPriority()));
         TextView alertTag = rootView.findViewById(R.id.alertTag);
         alertTag.setText(alert.getTag());
+        ImageView iv = rootView.findViewById(R.id.imageView);
+        Glide.with(rootView).load(getPriorityImage(alert.getPriority())).into(iv);
         return rootView;
+    }
+
+    private int getPriorityImage(Integer priority) {
+        switch (priority){
+            case 1: return R.drawable.trivial;
+            case 2: return R.drawable.minor;
+            case 3: return R.drawable.normal;
+            case 4: return R.drawable.high;
+            case 5: return R.drawable.urgent;
+        }
+        return R.drawable.normal;
+    }
+
+    private String getPriority(Integer priority) {
+        switch (priority){
+            case 1: return "Trivial";
+            case 2: return "Minor";
+            case 3: return "Normal";
+            case 4: return "High";
+            case 5: return "Urgent";
+        }
+        return "Normal";
     }
 }
