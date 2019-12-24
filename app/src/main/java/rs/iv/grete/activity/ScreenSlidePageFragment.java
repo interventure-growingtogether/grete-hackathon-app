@@ -3,6 +3,7 @@ package rs.iv.grete.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,22 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.bumptech.glide.Glide;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import rs.iv.grete.R;
 import rs.iv.grete.model.Alert;
+import rs.iv.grete.service.Client;
 
 public class ScreenSlidePageFragment extends Fragment {
     private Alert alert;
@@ -43,6 +56,28 @@ public class ScreenSlidePageFragment extends Fragment {
         Glide.with(rootView).load(getPriorityImage(alert.getPriority())).into(iv);
         accept = rootView.findViewById(R.id.accept);
         accept.setBackgroundColor(Color.RED);
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Map<String, Object> patch = new HashMap<>();
+                patch.put("id", alert.getId());
+                patch.put("assignee_id", 2);
+                Client.getInstance(getContext()).addToRequestQueue(
+                        new JsonObjectRequest(Request.Method.PATCH, "http://192.168.22.112:8765/alerts/" + alert.getId(), new JSONObject(patch), new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.d("asdasd", "onResponse: asdasd");
+                                ScreenSlidePageFragment.this.getActivity().finish();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d("asd", "onErrorResponse: error");
+                            }
+                        })
+                );
+            }
+        });
         accept.setAlpha(0.6f);
         accept.setTextSize(23f);
         return rootView;
@@ -69,4 +104,6 @@ public class ScreenSlidePageFragment extends Fragment {
         }
         return "Normal";
     }
+
+
 }
