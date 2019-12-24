@@ -9,13 +9,18 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import rs.iv.grete.R;
+import rs.iv.grete.model.Alert;
 
 public class AlertSwipeActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private List<Alert> alertList;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -32,11 +37,30 @@ public class AlertSwipeActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
+        alertList = new ArrayList<>();
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
+        alertList.add(createMockAlert());
 
-        // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.pager);
-        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager = findViewById(R.id.pager);
+        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), alertList);
         mPager.setAdapter(pagerAdapter);
+
+    }
+
+    private Alert createMockAlert() {
+        Alert alert =  new Alert();
+        alert.setId(UUID.randomUUID().toString());
+        alert.setTitle("Alert! ID: " + alert.getId());
+        alert.setDescription("some random stuff");
+        alert.setPriority(1);
+        alert.setTag("Java");
+        return alert;
     }
 
     @Override
@@ -51,23 +75,26 @@ public class AlertSwipeActivity extends FragmentActivity {
         }
     }
 
-    /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-     * sequence.
-     */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
 
+        List<Alert> alerts;
+        List<ScreenSlidePageFragment> fragments;
+        public ScreenSlidePagerAdapter(FragmentManager fm, List<Alert> alertList) {
+            super(fm);
+            alerts = alertList;
+            fragments = new ArrayList<>();
+            for (Alert a: alerts) {
+                fragments.add(new ScreenSlidePageFragment(a));
+            }
+        }
         @Override
         public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+            return fragments.get(position);
         }
 
         @Override
         public int getCount() {
-            return NUM_PAGES;
+            return fragments.size();
         }
     }
 }
